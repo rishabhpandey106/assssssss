@@ -1,0 +1,6 @@
+{
+  "name": "HackHub Portal",
+  "description": "A comprehensive hackathon management dashboard with project submissions, details tracking, and a built-in RAG-style chatbot.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
