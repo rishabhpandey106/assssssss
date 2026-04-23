@@ -22,6 +22,15 @@ export default function App() {
     localStorage.setItem('hackhub_projects', JSON.stringify(projects));
   }, [projects]);
 
+  useEffect(() => {
+    const sorted = [...projects].sort((a, b) => b.score - a.score).slice(0, 3);
+    const winnerIds = new Set(sorted.map(p => p.id));
+    setProjects(prev => prev.map(p => ({
+      ...p,
+      isWinner: winnerIds.has(p.id)
+    })));
+  }, []);
+
   const addProject = (project: Omit<Project, 'id' | 'submittedAt' | 'score'>) => {
     const newProject: Project = {
       ...project,
